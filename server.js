@@ -6,7 +6,6 @@ const videos = require("./dbModel.js");
 
 //app config
 const app = express();
-const PORT = process.env.PORT || 9000;
 
 //middleware
 app.use(express.json());
@@ -54,4 +53,6 @@ app.post("/posts", (req, res) => {
 });
 
 //listener
-app.listen(8000, () => console.log("listening on PORT " + PORT));
+app.listen(process.env.PORT || 9000, () =>
+  console.log("listening on PORT " + PORT)
+);
