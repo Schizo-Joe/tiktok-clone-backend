@@ -9,7 +9,12 @@ const app = express();
 const PORT = 8000;
 
 //middleware
-
+app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  next();
+});
 //DB config
 
 const connection_URL =
@@ -25,7 +30,17 @@ app.get("/", (req, res) => res.status(200).send("Hello World"));
 
 app.get("/v1/posts", (req, res) => res.status(200).send(data));
 
-app.post("/v2/videos", (req, res) => {
+app.get("/posts", (req, res) => {
+  videos.find({}, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
+
+app.post("/posts", (req, res) => {
   const dbVideos = req.body;
   videos.create(dbVideos, (err, data) => {
     if (err) {

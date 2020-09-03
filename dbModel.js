@@ -1,4 +1,4 @@
-const mongoose = require("require");
+const mongoose = require("mongoose");
 
 const tiktokSchema = mongoose.Schema({
   channel: String,
