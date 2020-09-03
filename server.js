@@ -53,6 +53,4 @@ app.post("/posts", (req, res) => {
 });
 
 //listener
-app.listen(process.env.PORT || 9000, () =>
-  console.log("listening on PORT " + PORT)
-);
+app.listen(process.env.PORT || 9000);
