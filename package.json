@@ -1,0 +1,11 @@
+{
+  "name": "tiktok-clone-backend",
+  "version": "1.0.0",
+  "description": "This is the backend for tiktok cole web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bazil Korath",
+  "license": "ISC"
+}
