@@ -6,7 +6,7 @@ const videos = require("./dbModel.js");
 
 //app config
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 
 //middleware
 app.use(express.json());
@@ -15,6 +15,7 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Headers", "*"),
     next();
 });
+
 //DB config
 
 const connection_URL =
@@ -25,6 +26,7 @@ mongoose.connect(connection_URL, {
   useCreateIndex: true,
   useUnifiedTopology: true,
 });
+
 //api endpoints
 app.get("/", (req, res) => res.status(200).send("Hello World"));
 
@@ -51,5 +53,5 @@ app.post("/posts", (req, res) => {
   });
 });
 
-//listeren
+//listener
 app.listen(8000, () => console.log("listening on PORT " + PORT));
